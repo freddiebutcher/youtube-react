@@ -7,9 +7,13 @@ export function Video(props) {
   if (!props.id) {
     return null;
   }
-  const embedUrl = `${BASE_EMBED_URL}${props.id}?autoplay=1`;
+  const embedUrl = `${BASE_EMBED_URL}${props.id}?`; //}?autoplay=1`;
   return (
-    <iframe width={'560'} height={'315'} src={embedUrl} frameBorder='0'
+    <div className='video-container'>
+      <div className='video'>
+        <iframe width={'560'} height={'315'} src={embedUrl} frameBorder='0'
             allow='autoplay; encrypted-media' allowFullScreen title={'video'}/>
+      </div>
+    </div>
   );
 }
