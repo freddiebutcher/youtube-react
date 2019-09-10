@@ -1,19 +1,20 @@
 import React from 'react';
 import './Watch.scss';
-import {Video} from '../../components/Video/Video';
-import {VideoPreview} from '../../components/VideoPreview/VideoPreview';
 import {RelatedVideos} from '../../components/RelatedVideos/RelatedVideos';
+import {Video} from '../../components/Video/Video';
+import {VideoMetadata} from '../../components/VideoMetadata/VideoMetadata';
+// import {VideoPreview} from '../../components/VideoPreview/VideoPreview';
 
 export class Watch extends React.Component {
   render() {
     return (
       <div className='watch-grid'>
         <Video className='video' id='-7fuHEEmEjs' />
-        <div className='metadata' style={{width: '100%', height: '100px', background: '#F91112'}}>Metadata</div>
+        <VideoMetadata className='metadata' viewCount={1000}/>
         <div className='video-info-box' style={{width: '100%', height: '100px', background: '#BD10E0'}}>Video Info Box</div>
         <div className='comments' style={{width: '100%', height: '100px', background: '#9013FE'}}>Comments</div>
         <RelatedVideos className='RelatedVideos'/>
-      </div>  
+      </div>
     );
   }
 }
