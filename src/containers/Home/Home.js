@@ -4,9 +4,9 @@ import * as videoActions from "../../store/actions/video";
 import {bindActionCreators} from 'redux';
 import {getYoutubeLibraryLoaded} from '../../store/reducers/api';
 import './Home.scss';
+import HomeContent from './HomeContent/HomeContent'
 
 import {SideBar} from '../SideBar/SideBar';
-import {HomeContent} from './HomeContent/HomeContent';
 
 export class Home extends React.Component {
   render() {
