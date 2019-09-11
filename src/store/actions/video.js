@@ -13,3 +13,10 @@ export const categories = {
   success: (response) => createAction(VIDEO_CATEGORIES[SUCCESS], {response}),
   failure: (response) => createAction(VIDEO_CATEGORIES[FAILURE], {response}),
 };
+
+export const MOST_POPULAR_BY_CATEGORY = createRequestTypes('MOST_POPULAR_BY_CATEGORY');
+export const mostPopularByCategory = {
+  request: () => createAction(MOST_POPULAR_BY_CATEGORY[REQUEST]),
+  success: (response) => createAction(MOST_POPULAR_BY_CATEGORY[SUCCESS], {response}),
+  failure: (response) => createAction(MOST_POPULAR_BY_CATEGORY[FAILURE], {response}),
+};
