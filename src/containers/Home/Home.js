@@ -8,7 +8,7 @@ import HomeContent from './HomeContent/HomeContent'
 
 import {SideBar} from '../SideBar/SideBar';
 
-export class Home extends React.Component {
+class Home extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -19,14 +19,19 @@ export class Home extends React.Component {
   }
   componentDidMount() {
     if(this.props.youtubeLibraryLoaded) {
-      this.props.fetchMostPopularVideos();
+      this.fetchCategoriesAndMostPopularVideos();
     }
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.youtubeLibraryLoaded !== prevProps.youtubeLibraryLoaded) {
-      this.props.fetchMostPopularVideos();
+      this.fetchCategoriesAndMostPopularVideos();
     }
+  }
+
+  fetchCategoriesAndMostPopularVideos() {
+    this.props.fetchMostPopularVideos();
+    this.props.fetchVideoCategories();
   }
 }
 
@@ -38,7 +43,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   const fetchMostPopularVideos = videoActions.mostPopular.request;
-  return bindActionCreators({fetchMostPopularVideos}, dispatch);
+  const fetchVideoCategories = videoActions.categories.request;
+  return bindActionCreators({fetchMostPopularVideos, fetchVideoCategories}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -19,6 +19,15 @@ export function buildMostPopularVideosRequest(amount = 12, loadDescription = fal
   }, null);
 }
 
+export function buildVideoCategoriesRequest() {
+  return buildApiRequest('GET',
+    '/youtube/v3/videoCategories',
+    {
+      'part': 'snippet',
+      'regionCode': 'US'
+    }, null);
+}
+
 export function buildApiRequest(requestMethod, path, params, properties) {
   params = removeEmptyParams(params);
   let request;
