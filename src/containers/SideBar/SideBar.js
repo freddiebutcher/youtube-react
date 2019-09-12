@@ -18,7 +18,7 @@ export class SideBar extends React.Component {
         <SideBarItem label='Watch Later' icon='clock'/>
         <SideBarItem label='Liked Videos' icon='thumbs up'/>
         <Divider/>
-        <SideBarHeader title='More from MobTube'/>
+        <SideBarHeader title='More from Mob Tube'/>
         <SideBarItem label='Movies and Shows' icon='film'/>
         <Divider/>
         <SideBarItem label='Report History' icon='flag'/>

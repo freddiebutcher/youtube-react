@@ -2,6 +2,7 @@ import React from 'react';
 import {Form, Icon, Image, Input, Menu} from 'semantic-ui-react';
 import './HeaderNav.scss';
 import logo from '../../assets/images/logo.jpg';
+import avatar from '../../assets/images/avatar.png';
 import {Link} from 'react-router-dom';
 
 export class HeaderNav extends React.Component {
@@ -36,7 +37,7 @@ export class HeaderNav extends React.Component {
               <Icon className='header-icon' name='alarm' size='large'/>
             </Menu.Item>
             <Menu.Item name='avatar'>
-              <Image src='http://via.placeholder.com/80x80' avatar/>
+              <Image src={avatar} avatar/>
             </Menu.Item>
           </Menu.Menu>
         </Menu.Menu>
