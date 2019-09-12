@@ -1,5 +1,4 @@
 import React from 'react';
-import './Watch.scss';
 import {RelatedVideos} from '../../components/RelatedVideos/RelatedVideos';
 import {Video} from '../../components/Video/Video';
 import {VideoMetadata} from '../../components/VideoMetadata/VideoMetadata';
@@ -10,18 +9,14 @@ import * as watchActions from '../../store/actions/watch';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getYoutubeLibraryLoaded} from '../../store/reducers/api'
+import WatchContent from './WatchContent/WatchContent';
 // import {VideoPreview} from '../../components/VideoPreview/VideoPreview';
 
 export class Watch extends React.Component {
   render() {
+    const videoId = this.getVideoId();
     return (
-      <div className='watch-grid'>
-        <Video className='video' id='-7fuHEEmEjs' />
-        <VideoMetadata className='metadata' viewCount={1000}/>
-        <VideoInfoBox className='video-info-box'/>
-        <Comments className='comments'/>
-        <RelatedVideos className='RelatedVideos'/>
-      </div>
+      <WatchContent videoId={videoId}/>
     );
   }
   componentDidMount() {
