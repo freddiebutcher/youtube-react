@@ -1,6 +1,8 @@
 import {createSelector} from 'reselect';
 import {MOST_POPULAR, MOST_POPULAR_BY_CATEGORY, VIDEO_CATEGORIES} from '../actions/video';
 import {SUCCESS} from '../actions';
+import {WATCH_DETAILS} from '../actions/watch';
+import {VIDEO_LIST_RESPONSE} from '../api/youtube-api-response-types';
 
 const initialState = {
   byId: {},
@@ -16,6 +18,8 @@ export default function videos(state = initialState, action) {
       return reduceFetchVideoCategories(action.response, state);
     case MOST_POPULAR_BY_CATEGORY[SUCCESS]:
       return reduceFetchMostPopularVideosByCategory(action.response, action.categories, state);
+    case WATCH_DETAILS[SUCCESS]:
+      return reduceWatchDetails(action.response, state);
     default:
         return state;
   }
@@ -73,6 +77,19 @@ function reduceFetchMostPopularVideosByCategory(responses, categories, prevState
     ...prevState,
     byId: {...prevState.byId, ...videoMap},
     byCategory: {...prevState.byCategory, ...byCategoryMap},
+  };
+}
+
+function reduceWatchDetails(responses, prevState) {
+  const videoDetailResponse = responses.find(r => r.result.kind === VIDEO_LIST_RESPONSE);
+  const video = videoDetailResponse.result.items[0];
+
+  return {
+    ...prevState,
+    byId: {
+      ...prevState.byId,
+      [video.id]: video
+    },
   };
 }
 

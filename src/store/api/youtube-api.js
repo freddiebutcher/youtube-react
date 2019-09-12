@@ -50,6 +50,16 @@ export function buildApiRequest(requestMethod, path, params, properties) {
   return request;
 }
 
+export function buildVideoDetailRequest(videoId) {
+  return buildApiRequest('GET',
+    '/youtube/v3/videos',
+    {
+      part: 'snippet,statistics,contentDetails',
+      id: videoId,
+      fields: 'kind,items(contentDetails/duration,id,snippet(channelId,channelTitle,description,publishedAt,thumbnails/medium,title),statistics)'
+    }, null);
+}
+
 function removeEmptyParams(params) {
   for (var p in params) {
     if (!params[p] || params[p] === 'undefined') {
