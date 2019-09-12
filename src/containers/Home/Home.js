@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import {getYoutubeLibraryLoaded} from '../../store/reducers/api';
 import './Home.scss';
 import HomeContent from './HomeContent/HomeContent'
-import {getVideoCategoryIds} from '../../store/reducers/videos';
+import {getVideoCategoryIds, videoCategoriesLoaded, videosByCategoryLoaded} from '../../store/reducers/videos';
 
 
 import {SideBar} from '../SideBar/SideBar';
@@ -22,12 +22,15 @@ class Home extends React.Component {
     return (
       <React.Fragment>
         <SideBar/>
-        <HomeContent/>
+        <HomeContent
+          bottomReachedCallback={this.bottomReachedCallback}
+          showLoader={this.shouldShowLoader()}/>
       </React.Fragment>
     );
   }
+
   componentDidMount() {
-    if(this.props.youtubeLibraryLoaded) {
+    if (this.props.youtubeLibraryLoaded) {
       this.fetchCategoriesAndMostPopularVideos();
     }
   }
@@ -55,12 +58,28 @@ class Home extends React.Component {
     this.props.fetchMostPopularVideos();
     this.props.fetchVideoCategories();
   }
+
+  bottomReachedCallback = () => {
+    if (!this.props.videoCategoriesLoaded) {
+      return;
+    }
+    this.fetchVideosByCategory();
+  };
+
+  shouldShowLoader() {
+    if (this.props.videoCategoriesLoaded && this.props.videosByCategoryLoaded) {
+      return this.state.categoryIndex < this.props.videoCategories.length;
+    }
+    return false;
+  }
 }
 
 function mapStateToProps(state) {
   return {
     youtubeLibraryLoaded: getYoutubeLibraryLoaded(state),
     videoCategories: getVideoCategoryIds(state),
+    videoCategoriesLoaded: videoCategoriesLoaded(state),
+    videosByCategoryLoaded: videosByCategoryLoaded(state),
   };
 }
 
