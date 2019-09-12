@@ -30,8 +30,9 @@ export function* watchMostPopularVideosByCategory() {
 }
 
 export function* fetchMostPopularVideosByCategory(categories) {
-  const requests = categories.map(category => {
-      const wrapper = ignoreErrors(api.buildMostPopularVideosRequest, 12, false, null, category);
+  // if (!categories) return;
+  const requests = categories.map(categoryId => {
+      const wrapper = ignoreErrors(api.buildMostPopularVideosRequest, 12, false, null, categoryId);
       return call(wrapper);
   });
   try {
@@ -40,4 +41,4 @@ export function* fetchMostPopularVideosByCategory(categories) {
   } catch (error) {
     yield put(videoActions.mostPopularByCategory.failure(error));
   }
-}
+};
