@@ -1,27 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3cad63a787254a60b3d73cb3a16d9ac4",
+    "revision": "1aa251db47f292f1f1f0e577e1540b3d",
     "url": "/youtube-react/index.html"
   },
   {
-    "revision": "ebb30d85da7ceca02a6a",
+    "revision": "efa9d13fde56de65e52d",
     "url": "/youtube-react/static/css/2.20edb33d.chunk.css"
   },
   {
-    "revision": "d2f9296cc69d080b6f41",
-    "url": "/youtube-react/static/css/main.8eca68cb.chunk.css"
+    "revision": "a8e2fdcd0c8af90d03d7",
+    "url": "/youtube-react/static/css/main.18d0ed20.chunk.css"
   },
   {
-    "revision": "ebb30d85da7ceca02a6a",
-    "url": "/youtube-react/static/js/2.02302d7d.chunk.js"
+    "revision": "efa9d13fde56de65e52d",
+    "url": "/youtube-react/static/js/2.fccc914e.chunk.js"
   },
   {
-    "revision": "d2f9296cc69d080b6f41",
-    "url": "/youtube-react/static/js/main.38847977.chunk.js"
+    "revision": "a8e2fdcd0c8af90d03d7",
+    "url": "/youtube-react/static/js/main.8a60629a.chunk.js"
   },
   {
     "revision": "9147755766f1357fb1a3",
     "url": "/youtube-react/static/js/runtime~main.db4d18fd.js"
+  },
+  {
+    "revision": "e3d16d6c5a1f05418e6d5286c232a9c2",
+    "url": "/youtube-react/static/media/avatar.e3d16d6c.png"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
